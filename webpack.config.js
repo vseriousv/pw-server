@@ -1,8 +1,10 @@
 const path = require('path');
 const NodemonPlugin = require('nodemon-webpack-plugin');
+const TSLintPlugin = require('tslint-webpack-plugin');
+const PrettierPlugin = require("prettier-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/server.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [
@@ -21,6 +23,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-      new NodemonPlugin()
+    new PrettierPlugin(),
+    new TSLintPlugin({
+      files: ['./src/**/*.ts']
+    }),
+    new NodemonPlugin()
   ],
 };
