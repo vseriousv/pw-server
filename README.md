@@ -2,7 +2,7 @@
   <a href="https://gearappi.com/" target="_blank"><img src="https://raw.githubusercontent.com/gearappi/resource/master/logo_site.png" width="200" alt="gearappi Logo" /></a>
 </p>
 <p align="center">
-    Backend as a service. The main request router.
+    Backend as a platform. The main request router.
 </p>
    
 ## API.GEARAPPI
