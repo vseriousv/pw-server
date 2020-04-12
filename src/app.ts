@@ -1,18 +1,17 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import { config } from './config';
+import { Server } from 'typescript-rest';
+import config from './common/config';
+import UsersControllers from './Controllers/Users.controllers';
 
 const app = express();
 
-app.use(bodyParser.json());
+// Initialization of all controllers
+Server.buildServices(
+  app,
+  UsersControllers
+);
 
-app.get('/', (req, res): void => {
-  res.send('hello world');
-});
-
-app.listen(config.PORT, (): void => {
+app.listen(config.PORT, () => {
   // tslint:disable-next-line:no-console
-  console.log(`Server started on http://localhost:${ config.PORT }`);
+  console.log('Server running on PORT: ', config.PORT);
 });
-
-
