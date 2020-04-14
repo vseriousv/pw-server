@@ -1,8 +1,9 @@
 import { GET, Path, PathParam } from 'typescript-rest';
+import ControllerBase from '../common/ControllersLib/Controller.base';
 import UsersService from '../Services/Users/Users.service';
 
 @Path('/users')
-export default class UsersControllers {
+export default class UsersController extends ControllerBase{
 
   service = new UsersService();
 

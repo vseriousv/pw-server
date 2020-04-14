@@ -24,7 +24,7 @@ class UsersService {
     return USER_SERVICE.INIT
   }
 
-  userRemove(): string{
+  userRemove(): string {
     const USER_SERVICE = new UserRemoveService();
     return USER_SERVICE.INIT;
   }
