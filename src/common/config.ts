@@ -1,5 +1,5 @@
 const config = {
-  PORT: 8080
+  PORT: 7070
 }
 
 export default config;
