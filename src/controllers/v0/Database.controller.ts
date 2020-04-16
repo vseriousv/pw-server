@@ -1,11 +1,9 @@
-import { GET, Path, PathParam } from 'typescript-rest';
-import ControllerBase from '../common/ControllersLib/Controller.base';
+import { Controller, Get, PathParams } from '@tsed/common';
 
-@Path('/db')
-class DatabaseController extends ControllerBase {
+@Controller('/db')
+export class DatabaseController {
 
-    @GET
-    @Path('/show')
+    @Get('/show')
     showAllDB(): string {
         const api = {
             'db': 'Show all DB'
@@ -13,17 +11,15 @@ class DatabaseController extends ControllerBase {
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/show/:name')
-    showAllDBbyName(@PathParam('name') name: string): string {
+    @Get('/show/:name')
+    showAllDBbyName(@PathParams('name') name: string): string {
         const api = {
             'db': 'Show db by name: ' + name
         };
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/create')
+    @Get('/create')
     createDB(): string {
         const api = {
             'db': 'Create db'
@@ -31,8 +27,7 @@ class DatabaseController extends ControllerBase {
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/remove')
+    @Get('/remove')
     removeDB(): string {
         const api = {
             'db': 'Remove db'
@@ -40,6 +35,4 @@ class DatabaseController extends ControllerBase {
         return JSON.stringify(api);
     }
 }
-
-export default DatabaseController;
 

@@ -1,11 +1,9 @@
-import { GET, Path, PathParam } from 'typescript-rest';
-import ControllerBase from '../common/ControllersLib/Controller.base';
+import { Controller, Get, PathParams } from '@tsed/common';
 
-@Path('/notification')
-class NotificationController extends ControllerBase {
+@Controller('/notification')
+export class NotificationController {
 
-    @GET
-    @Path('/show')
+    @Get('/show')
     showAllDB(): string {
         const api = {
             'notification': 'Show all notification'
@@ -13,17 +11,15 @@ class NotificationController extends ControllerBase {
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/show/:name')
-    showAllDBbyName(@PathParam('name') name: string): string {
+    @Get('/show/:name')
+    showAllDBbyName(@PathParams('name') name: string): string {
         const api = {
             'notification': 'Show notification by name: ' + name
         };
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/create')
+    @Get('/create')
     createDB(): string {
         const api = {
             'notification': 'Create notification'
@@ -31,8 +27,7 @@ class NotificationController extends ControllerBase {
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/remove')
+    @Get('/remove')
     removeDB(): string {
         const api = {
             'notification': 'Remove notification'
@@ -40,15 +35,12 @@ class NotificationController extends ControllerBase {
         return JSON.stringify(api);
     }
 
-    @GET
-    @Path('/call/:id')
-    callDB(@PathParam('id') id: string): string {
+    @Get('/call/:id')
+    callDB(@PathParams('id') id: string): string {
         const api = {
             'notification': 'Call notification by: ' + id
         };
         return JSON.stringify(api);
     }
 }
-
-export default NotificationController;
 
