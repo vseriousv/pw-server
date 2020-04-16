@@ -1,11 +1,9 @@
-import { GET, Path } from 'typescript-rest';
-import ControllerBase from '../common/ControllersLib/Controller.base';
+import { Controller, Get } from '@tsed/common';
 
-@Path('/')
-class MainController extends ControllerBase {
-
-    @GET
-    mainIndex(): string {
+@Controller('/main')
+export class MainController {
+    @Get()
+    findAll(): string {
         const api = {
             'What is it?': 'This is the first message from our service.',
             'What service?': 'It is backend as a platform.',
@@ -15,10 +13,8 @@ class MainController extends ControllerBase {
             'When will the service be launched?': 'Alpha testing will begin on February 1, 2020.',
             'How to participate in alpha testing?': 'To do this, send a message to the mail: alpha@gearappi.com',
             'Thanks!': 'Regards, Gearappi.com Team.'
-    }
+        };
         return JSON.stringify(api);
     }
 }
-
-export default MainController;
 

@@ -1,24 +1,16 @@
-import express from 'express';
-import { Server } from 'typescript-rest';
-import config from './common/config';
-import UsersController from './Controllers/Users.controller';
-import MainController from './Controllers/Main.controller';
-import DatabaseController from './Controllers/Database.controller';
-import NotificationController from './Controllers/Notification.controller';
-import AuthController from './Controllers/Auth.controller';
+import { $log, ServerLoader } from '@tsed/common';
+import { Server } from './Server';
 
-const app = express();
-// Initialization of all controllers
-Server.buildServices(
-  app,
-  MainController,
-  UsersController,
-  DatabaseController,
-  NotificationController,
-  AuthController
-);
+async function bootstrap() {
+    try {
+        $log.debug('Start server...');
+        const server = await ServerLoader.bootstrap(Server);
 
-app.listen(config.PORT, () => {
-  // tslint:disable-next-line:no-console
-  console.log('Server running on PORT: ', config.PORT);
-});
+        await server.listen();
+        $log.debug('Server initialized');
+    } catch (er) {
+        $log.error(er);
+    }
+}
+
+bootstrap();

@@ -1,5 +1,5 @@
 // Create record to DB
-import UserModel from '../../Models/UsersModel/User.model';
+import UserModel from '../../models/UsersModel/User.model';
 
 class UserCreateService {
   user = new UserModel();

@@ -1,5 +1,5 @@
 // Query to database
-import UserModel from '../../Models/UsersModel/User.model';
+import UserModel from '../../models/UsersModel/User.model';
 
 class UserReadyService {
   user = new UserModel();
